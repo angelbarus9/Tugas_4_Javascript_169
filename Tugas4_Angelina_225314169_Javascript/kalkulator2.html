@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Kalkulator Sederhana</title>
+    <link rel="stylesheet" href="kakulator2_Style.css"> <!-- Menghubungkan file CSS baru -->
+</head>
+
+<body>
+
+    <h1>Kalkulator Sederhana</h1>
+    <p>By : Angelina Petronella br Barus</p>
+    <p>NIM : 225314169</p>
+    <div class="kalkulator">
+        <div class="content">
+            <div id="operation">
+                 <!-- Elemen untuk menampilkan operasi yang sedang berjalan -->
+                <!-- Elemen ini akan menampilkan operasi seperti "4 + 5" -->
+            </div>
+            <input type="text" placeholder="0" id="inputBox">
+
+            <button type="button" onclick="input('1')">1</button>
+            <button type="button" onclick="input('2')">2</button>
+            <button type="button" onclick="input('3')">3</button>
+            <button class="op" type="button" onclick="input('+')">+</button>
+
+            <button type="button" onclick="input('4')">4</button>
+            <button type="button" onclick="input('5')">5</button>
+            <button type="button" onclick="input('6')">6</button>
+            <button class="op" type="button" onclick="input('-')">-</button>
+
+            <button type="button" onclick="input('7')">7</button>
+            <button type="button" onclick="input('8')">8</button>
+            <button type="button" onclick="input('9')">9</button>
+            <button class="op" type="button" onclick="input('*')">*</button>
+
+            <button class="clear" type="button" onclick="clearInput()">C</button>
+            <button type="button" onclick="input('0')">0</button>
+            <button class="equals" type="button" onclick="hitungHasil()">=</button>
+            <button class="op" type="button" onclick="input('/')">/</button>
+        </div>
+    </div>
+
+
+    <script>
+        var bil1 = '';
+        var bil2 = '';
+        var operator = '';
+        var error = document.getElementById("input-error");
+
+        function input(nilai) {
+            var inputBox = document.getElementById("inputBox");
+            // Jika nilai adalah angka
+            if (!isNaN(nilai)) {
+                inputBox.value += nilai;
+            } else { // Jika nilai adalah operator
+                if (operator === '') {
+                    document.getElementById("operation").textContent = inputBox.value + ' ' + nilai; // Menampilkan operasi yang sedang berjalan
+                    bil1 = parseFloat(inputBox.value);
+                    operator = nilai;
+                    clearInput();
+                }
+            }
+        }
+
+       
+        function clearInput() {
+            var inputBox = document.getElementById("inputBox");
+            inputBox.value = '';
+        }
+
+        function hitungHasil() {
+            bil2 = parseFloat(document.getElementById("inputBox").value);
+            var hasil = 0;
+
+            if (operator === '+') {
+                hasil = bil1 + bil2;
+            } else if (operator === '-') {
+                hasil = bil1 - bil2;
+            } else if (operator === '*') {
+                hasil = bil1 * bil2;
+            } else if (operator === '/') {
+                if (bil2 !== 0) {
+                    hasil = bil1 / bil2;
+                } else {
+                    error.textContent = "Tidak dapat membagi dengan 0";
+                    return;
+                }
+            }
+
+            document.getElementById("inputBox").value = hasil;
+            document.getElementById("operation").textContent += ' ' + bil2 ; 
+            bil1 = hasil;
+            bil2 = '';
+            operator = '';
+            error.textContent = '';
+        }
+    </script>
+
+</body>
+
+</html>

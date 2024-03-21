@@ -1,0 +1,73 @@
+* {
+    padding: 10px;
+    margin: 5px;
+    box-sizing: flex;
+    font-family: 'Poppins', sans-serif;
+    background-color: antiquewhite;
+    
+}
+
+.kalkulator {
+    display: grid;
+    place-items: center;
+    width: 350px; /* Sesuaikan dengan lebar kalkulator */
+    height: auto; /* Sesuaikan dengan tinggi kalkulator */
+    background: rgb(203, 193, 213);
+    border-radius: 10px;
+    box-shadow: 30px 40px 50px -30px rgb(18, 18, 18);
+}
+
+.content {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+    padding: 20px;
+    background: rgb(203, 193, 213);
+    height: auto; /* Sesuaikan dengan tinggi kalkulator */
+
+}
+
+input[type="text"] {
+    grid-column: span 4;
+    height: 100px;
+    border-radius: 10px;
+    background: rgb(105, 152, 143);
+    font-size: 25px;
+    font-weight: 600;
+    text-align: right;
+    padding-right: 20px;
+    outline: none;
+    border: none;
+}
+
+button {
+    border: none;
+    outline: none;
+    border-radius: 10px;
+    background: rgb(105, 152, 143);
+    font-size: 25px;
+    font-weight: 600;
+    color: rgb(22, 238, 216);
+    cursor: pointer;
+}
+
+.equals {
+    background: rgb(173, 114, 73);
+}
+.clear {
+    background: rgb(72, 69, 67);   
+}
+.op {
+    background: rgb(121, 138, 224);
+}
+
+#operation {
+    grid-column: span 4; /* Memperluas elemen untuk menutupi semua kolom */
+    padding: 10px; /* Tambahkan padding untuk jarak dari tepi */
+    border-radius: 10px; /* Membuat sudut elemen menjadi membulat */
+    background-color: rgb(105, 152, 143); /* Warna latar belakang */
+    font-size: 20px; /* Ukuran font */
+    font-weight: bold; /* Ketebalan font */
+    text-align: right; /* Posisi teks ke kanan */
+    margin-bottom: 10px; /* Jarak dari elemen inputBox */
+}
